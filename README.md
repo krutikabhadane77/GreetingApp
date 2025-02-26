@@ -6,3 +6,4 @@ Controllers
 @GetMapping("/greeting/all")
 @PutMapping("/greeting/{id}")
 @DeleteMapping("greeting/{id}")# GreetingApp
+# GreetingApp
