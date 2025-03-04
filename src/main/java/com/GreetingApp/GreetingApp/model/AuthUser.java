@@ -20,12 +20,14 @@ public class AuthUser {
     private String lastName;
     private String email;
     private String password;
+    private String resetToken;
 
-    public AuthUser(AuthUserDTO userDTO) {
-        this.firstName=userDTO.getFirstName();
-        this.lastName=userDTO.getLastName();
-        this.email=userDTO.getEmail();
-        this.password=userDTO.getPassword();
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
     }
 
     public Long getUserId() {
@@ -66,5 +68,12 @@ public class AuthUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AuthUser(AuthUserDTO userDTO) {
+        this.firstName=userDTO.getFirstName();
+        this.lastName=userDTO.getLastName();
+        this.email=userDTO.getEmail();
+        this.password=userDTO.getPassword();
     }
 }

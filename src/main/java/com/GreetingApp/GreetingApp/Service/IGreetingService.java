@@ -11,7 +11,19 @@ import java.util.List;
 public interface IGreetingService {
     Greeting greetingMessage();
 
-    ResponseEntity<User> greetingMessageWithRepo(@RequestBody User user);
+
+    /*@Override
+    public ResponseEntity<User> greetingMessageWithRepo(User user) {
+        User savedUser = greetingRepository.save(user);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).build();
+    }*/
+    User greetingMessageWithRepo(User user);
 
     User getById(@PathVariable Long id);
 

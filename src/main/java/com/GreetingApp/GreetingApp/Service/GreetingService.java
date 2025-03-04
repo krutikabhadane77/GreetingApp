@@ -4,12 +4,9 @@ import com.GreetingApp.GreetingApp.Repository.GreetingRepository;
 import com.GreetingApp.GreetingApp.dto.Greeting;
 import com.GreetingApp.GreetingApp.dto.User;
 import com.GreetingApp.GreetingApp.exception.ItemNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -28,7 +25,7 @@ public class GreetingService implements IGreetingService {
         return new Greeting(counter.incrementAndGet(),String.format(template));
     }
 
-    @Override
+    /*@Override
     public ResponseEntity<User> greetingMessageWithRepo(User user) {
         User savedUser = greetingRepository.save(user);
 
@@ -38,7 +35,12 @@ public class GreetingService implements IGreetingService {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }*/
+    @Override
+    public User greetingMessageWithRepo(User user) {
+        return greetingRepository.save(user);
     }
+
 
     @Override
     public User getById(@PathVariable  Long id) {
